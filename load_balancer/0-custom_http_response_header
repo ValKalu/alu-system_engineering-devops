@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Script to install and configure nginx to serve custom http response header
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo sed -i '/5459-web-02 _;/a \\n\tadd_header X-Served-By codespaces-0f058a;' /etc/nginx/sites-available/default
+sudo service nginx restart
